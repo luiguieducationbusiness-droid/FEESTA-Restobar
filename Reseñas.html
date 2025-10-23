@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Reseñas - FESTA Restobar</title>
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;700;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#B91C1C",
+                        "background-light": "#F8F8F8",
+                        "background-dark": "#221210",
+                        "text-light": "#333333",
+                        "text-dark": "#F8F8F8"
+                    },
+                    fontFamily: {
+                        "display": ["Epilogue", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        body {
+            font-family: 'Epilogue', sans-serif;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        header {
+            animation: fadeInDown 0.8s ease-out forwards;
+            will-change: opacity, transform;
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            will-change: opacity, transform;
+        }
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+    <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+        <div class="layout-container flex h-full grow flex-col">
+
+            <header class="sticky top-0 z-50 bg-background-light dark:bg-background-dark shadow-md">
+                <div class="px-4 md:px-10 lg:px-20 xl:px-40">
+                    <div class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 dark:border-white/10 px-4 md:px-10 py-3">
+                        
+                        <a href="Inicio.html" class="flex items-center gap-4 text-primary">
+                            <div class="size-6 text-primary">
+                                <svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M13.8261 30.5736C16.7203 29.8826 20.2244 29.4783 24 29.4783C27.7756 29.4783 31.2797 29.8826 34.1739 30.5736C36.9144 31.2278 39.9967 32.7669 41.3563 33.8352L24.8486 7.36089C24.4571 6.73303 23.5429 6.73303 23.1514 7.36089L6.64374 33.8352C8.00331 32.7669 11.0856 31.2278 13.8261 30.5736Z" fill="currentColor"></path><path clip-rule="evenodd" d="M39.998 35.764C39.9944 35.7463 39.9875 35.7155 39.9748 35.6706C39.9436 35.5601 39.8949 35.4259 39.8346 35.2825C39.8168 35.2403 39.7989 35.1993 39.7813 35.1602C38.5103 34.2887 35.9788 33.0607 33.7095 32.5189C30.9875 31.8691 27.6413 31.4783 24 31.4783C20.3587 31.4783 17.0125 31.8691 14.2905 32.5189C12.0012 33.0654 9.44505 34.3104 8.18538 35.1832C8.17384 35.2075 8.16216 35.233 8.15052 35.2592C8.09919 35.3751 8.05721 35.4886 8.02977 35.589C8.00356 35.6848 8.00039 35.7333 8.00004 35.7388C8.00004 35.739 8 35.7393 8.00004 35.7388C8.00004 35.7641 8.0104 36.0767 8.68485 36.6314C9.34546 37.1746 10.4222 37.7531 11.9291 38.2772C14.9242 39.319 19.1919 40 24 40C28.8081 40 33.0758 39.319 36.0709 38.2772C37.5778 37.7531 38.6545 37.1746 39.3151 36.6314C39.9006 36.1499 39.9857 35.8511 39.998 35.764ZM4.95178 32.7688L21.4543 6.30267C22.6288 4.4191 25.3712 4.41909 26.5457 6.30267L43.0534 32.777C43.0709 32.8052 43.0878 32.8338 43.104 32.8629L41.3563 33.8352C43.104 32.8629 43.1038 32.8626 43.104 32.8629L43.1051 32.865L43.1065 32.8675L43.1101 32.8739L43.1199 32.8918C43.1276 32.906 43.1377 32.9246 43.1497 32.9473C43.1738 32.9925 43.2062 33.0545 43.244 33.1299C43.319 33.2792 43.4196 33.489 43.5217 33.7317C43.6901 34.1321 44 34.9311 44 35.7391C44 37.4427 43.003 38.7775 41.8558 39.7209C40.6947 40.6757 39.1354 41.4464 37.385 42.0552C33.8654 43.2794 29.133 44 24 44C18.867 44 14.1346 43.2794 10.615 42.0552C8.86463 41.4464 7.30529 40.6757 6.14419 39.7209C4.99695 38.7775 3.99999 37.4427 3.99999 35.7391C3.99999 34.8725 4.29264 34.0922 4.49321 33.6393C4.60375 33.3898 4.71348 33.1804 4.79687 33.0311C4.83898 32.9556 4.87547 32.8935 4.9035 32.8471C4.91754 32.8238 4.92954 32.8043 4.93916 32.7889L4.94662 32.777L4.95178 32.7688ZM35.9868 29.004L24 9.77997L12.0131 29.004C12.4661 28.8609 12.9179 28.7342 13.3617 28.6282C16.4281 27.8961 20.0901 27.4783 24 27.4783C27.9099 27.4783 31.5719 27.8961 34.6383 28.6282C35.082 28.7342 35.5339 28.8609 35.9868 29.004Z" fill="currentColor" fill-rule="evenodd"></path></svg>
+                            </div>
+                            <h1 class="text-text-light dark:text-text-dark text-xl font-bold leading-tight tracking-[-0.015em]">FESTA</h1>
+                        </a>
+                        <div class="flex flex-1 justify-end gap-8">
+                            <nav class="hidden md:flex items-center gap-9">
+                                <a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary transition-all duration-300 transform hover:-translate-y-0.5" href="Menú.html">Menú</a>
+                                <a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary transition-all duration-300 transform hover:-translate-y-0.5" href="Galeria.html">Galería</a>
+                                <a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary transition-all duration-300 transform hover:-translate-y-0.5" href="Nosotros.html">Nosotros</a>
+                                <a class="text-primary dark:text-primary text-sm font-bold leading-normal" href="Reseñas.html" aria-current="page">Reseñas</a>
+                                <a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary transition-all duration-300 transform hover:-translate-y-0.5" href="Contacto.html">Contacto</a>
+                            </nav>
+                            <a href="Reservas.html" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+                                <span class="truncate">Reservar una Mesa</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <main class="px-4 md:px-10 lg:px-40 flex flex-1 justify-center py-10 lg:py-20">
+                <div class="layout-content-container flex flex-col w-full max-w-6xl flex-1">
+                    
+                    <div class="flex flex-wrap justify-between gap-6 p-4">
+                        <div class="flex flex-col gap-3">
+                            <p class="text-text-light dark:text-text-dark text-4xl lg:text-5xl font-black leading-tight tracking-[-0.033em] animate-on-scroll">Lo que dicen de FESTA</p>
+                            <p class="text-text-light/70 dark:text-text-dark/70 text-lg font-normal leading-normal animate-on-scroll" style="animation-delay: 100ms;">¡Comparte tu experiencia!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 mt-10 p-4">
+                        
+                        <div class="lg:col-span-1 flex flex-col gap-8 animate-on-scroll">
+                            <h2 class="text-2xl font-bold text-text-light dark:text-text-dark">Déjanos tu reseña</h2>
+                            <div class="flex flex-col gap-4">
+                                <label class="flex flex-col min-w-40 flex-1">
+                                    <p class="text-text-light dark:text-text-dark/90 text-base font-medium leading-normal pb-2">Tu Nombre</p>
+                                    <input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-light dark:text-text-dark focus:outline-0 focus:ring-0 border border-gray-200 dark:border-white/20 bg-white dark:bg-background-dark/50 focus:border-primary h-14 placeholder:text-text-light/50 dark:placeholder:text-text-dark/50 p-[15px] text-base font-normal leading-normal" placeholder="Ingresa tu nombre" value="" />
+                                </label>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <p class="text-text-light dark:text-text-dark/90 text-base font-medium leading-normal">Calificación</p>
+                                <div class="flex items-center gap-2 text-primary">
+                                    <span class="material-symbols-outlined cursor-pointer text-3xl">star</span>
+                                    <span class="material-symbols-outlined cursor-pointer text-3xl">star</span>
+                                    <span class="material-symbols-outlined cursor-pointer text-3xl">star</span>
+                                    <span class="material-symbols-outlined cursor-pointer text-3xl">star</span>
+                                    <span class="material-symbols-outlined cursor-pointer text-3xl" style="font-variation-settings: 'FILL' 0">star_border</span>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-4">
+                                <label class="flex flex-col min-w-40 flex-1">
+                                    <p class="text-text-light dark:text-text-dark/90 text-base font-medium leading-normal pb-2">Tu Comentario</p>
+                                    <textarea class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-light dark:text-text-dark focus:outline-0 focus:ring-0 border border-gray-200 dark:border-white/20 bg-white dark:bg-background-dark/50 focus:border-primary min-h-36 placeholder:text-text-light/50 dark:placeholder:text-text-dark/50 p-[15px] text-base font-normal leading-normal" placeholder="Escribe tu comentario aquí"></textarea>
+                                </label>
+                            </div>
+                            <button class="w-full bg-primary text-white rounded-lg py-3 px-6 text-base font-bold hover:bg-primary/90 transition-colors">Enviar Comentario</button>
+                        </div>
+                        
+                        <div class="lg:col-span-2">
+                            <div class="flex flex-col gap-8">
+                                <div class="flex flex-col md:flex-row flex-wrap gap-x-8 gap-y-6 p-6 bg-white dark:bg-background-dark/50 rounded-xl shadow-sm animate-on-scroll">
+                                    <div class="flex flex-col gap-2">
+                                        <p class="text-text-light dark:text-text-dark text-4xl font-black leading-tight tracking-[-0.033em]">4.5</p>
+                                        <div class="flex gap-0.5 text-primary">
+                                            <span class="material-symbols-outlined">star</span>
+                                            <span class="material-symbols-outlined">star</span>
+                                            <span class="material-symbols-outlined">star</span>
+                                            <span class="material-symbols-outlined">star</span>
+                                            <span class="material-symbols-outlined">star_half</span>
+                                        </div>
+                                        <p class="text-text-light/70 dark:text-text-dark/70 text-base font-normal leading-normal">123 reseñas</p>
+                                    </div>
+                                    <div class="grid min-w-[200px] max-w-[400px] flex-1 grid-cols-[20px_1fr_40px] items-center gap-y-3">
+                                        <p class="text-text-light dark:text-text-dark/90 text-sm font-normal leading-normal">5</p>
+                                        <div class="flex h-2 flex-1 overflow-hidden rounded-full bg-gray-200 dark:bg-white/10">
+                                            <div class="rounded-full bg-primary" style="width: 50%;"></div>
+                                        </div>
+                                        <p class="text-text-light/70 dark:text-text-dark/70 text-sm font-normal leading-normal text-right">50%</p>
+                                        <p class="text-text-light dark:text-text-dark/90 text-sm font-normal leading-normal">4</p>
+                                        <div class="flex h-2 flex-1 overflow-hidden rounded-full bg-gray-200 dark:bg-white/10">
+                                            <div class="rounded-full bg-primary" style="width: 35%;"></div>
+                                        </div>
+                                        <p class="text-text-light/70 dark:text-text-dark/70 text-sm font-normal leading-normal text-right">35%</p>
+                                        <p class="text-text-light dark:text-text-dark/90 text-sm font-normal leading-normal">3</p>
+                                        <div class="flex h-2 flex-1 overflow-hidden rounded-full bg-gray-200 dark:bg-white/10">
+                                            <div class="rounded-full bg-primary" style="width: 10%;"></div>
+                                        </div>
+                                        <p class="text-text-light/70 dark:text-text-dark/70 text-sm font-normal leading-normal text-right">10%</p>
+                                        <p class="text-text-light dark:text-text-dark/90 text-sm font-normal leading-normal">2</p>
+                                        <div class="flex h-2 flex-1 overflow-hidden rounded-full bg-gray-200 dark:bg-white/10">
+                                            <div class="rounded-full bg-primary" style="width: 3%;"></div>
+                                        </div>
+                                        <p class="text-text-light/70 dark:text-text-dark/70 text-sm font-normal leading-normal text-right">3%</p>
+                                        <p class="text-text-light dark:text-text-dark/90 text-sm font-normal leading-normal">1</p>
+                                        <div class="flex h-2 flex-1 overflow-hidden rounded-full bg-gray-200 dark:bg-white/10">
+                                            <div class="rounded-full bg-primary" style="width: 2%;"></div>
+                                        </div>
+                                        <p class="text-text-light/70 dark:text-text-dark/70 text-sm font-normal leading-normal text-right">2%</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="space-y-6">
+                                    <div class="bg-white dark:bg-background-dark/50 border dark:border-white/10 rounded-xl p-6 shadow-lg animate-on-scroll">
+                                        <div class="flex items-start gap-4">
+                                            <div class="flex-shrink-0">
+                                                <img class="w-12 h-12 rounded-full object-cover" data-alt="Foto de perfil de un cliente sonriendo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxGxilotgW_LWrJLezv4V1YHRI7gKbR2BAUTkKMbC7pSGKj0CbmW1R0KE3rkfc5KFrc9q1otNotoK-HZBpyE4DmxCyU2-h2vizu0BBnTCXOJY2JQTWG8LSN0LvADnsmIefmtC3Do-YIGDQaAXMJEx0-0glTV9rMoP_Jqevvo2l24KZ0dHhptxLl7vGPrmK5CFb86-ZaLKLVUDDjKN1m4WE0nildYo6v47zW5TfPQL3orMc-YghktGbvr4diFPGOf0mq81k8Tkx0DzN" loading="lazy" />
+                                            </div>
+                                            <div class="flex-1">
+                                                <div class="flex justify-between items-center">
+                                                    <h3 class="text-lg font-bold text-text-light dark:text-text-dark">Carlos S.</h3>
+                                                    <span class="text-sm text-text-light/70 dark:text-text-dark/70">Hace 2 días</span>
+                                                </div>
+                                                <div class="flex items-center gap-1 mt-1 text-primary">
+                                                    <span class="material-symbols-outlined text-base">star</span>
+                                                    <span class="material-symbols-outlined text-base">star</span>
+                                                    <span class="material-symbols-outlined text-base">star</span>
+                                                    <span class="material-symbols-outlined text-base">star</span>
+                                                    <span class="material-symbols-outlined text-base">star</span>
+                                                </div>
+                                                <p class="mt-3 text-text-light/90 dark:text-text-dark/90 leading-relaxed">"¡Una experiencia culinaria inolvidable! El ambiente es perfecto para una cena especial. Cada plato fue una obra de arte. Definitivamente el mejor restobar de la ciudad."</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="bg-white dark:bg-background-dark/50 rounded-xl p-6 shadow-sm animate-on-scroll" style="animation-delay: 100ms;">
+                                        <div class="flex items-start gap-4">
+                                            <div class="flex-shrink-0">
+                                                <img class="w-12 h-12 rounded-full object-cover" data-alt="Foto de perfil de una clienta" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPvYcfb7YHQiDI82Q-9LJj4adD4s1B7D2yLqlIcqqfYdC5A34Maz0HXCuc6-tPZnC8xaFQX3nkclWobEfIv5o3OqGtR-YN_YZJVDaAo0iXklG2F8fg4kCTQtNYbLd_NMGKAilAaShihApimcCRqztU78QdeQRT2_vaF8D2y_xR0WNiASBIwlPaS29uc-LtCfS82Gk4K3bsuNGoUPcIu4lM71gIZjA69ch6_vXNJ838WlKq4lU0FlOK-bACgGqAWW56gXbQ57HG3RbO" loading="lazy" />
+                                            </div>
+                                            <div class="flex-1">
+                                                <div class="flex justify-between items-center">
+                                                    <h3 class="text-lg font-bold text-text-light dark:text-text-dark">Ana Jiménez</h3>
+                                                    <span class="text-sm text-text-light/70 dark:text-text-dark/70">Hace una semana</span>
+                                                </div>
+                                                <div class="flex items-center gap-1 mt-1 text-primary">
+                                                    <span class="material-symbols-outlined text-base">star</span>
+                                                    <span class="material-symbols-outlined text-base">star</span>
+                                                    <span class="material-symbols-outlined text-base">star</span>
+                                                    <span class="material-symbols-outlined text-base">star</span>
+                                                    <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 0">star_border</span>
+                                                </div>
+                                                <p class="mt-3 text-text-light/90 dark:text-text-dark/90 leading-relaxed">"La comida estuvo deliciosa y los cócteles son de otro nivel. El servicio fue un poco lento, pero la amabilidad del personal lo compensó. Volveré."</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="bg-white dark:bg-background-dark/50 rounded-xl p-6 shadow-sm animate-on-scroll" style="animation-delay: 200ms;">
+                                        <div class="flex items-start gap-4">
+                                            <div class="flex-shrink-0">
+                                                <img class="w-12 h-12 rounded-full object-cover" data-alt="Foto de perfil de un cliente" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPlSbkxlqReYF6zvBhyWg-SB6bjdLsLg40gSyfHgKSCfpp7CCCBA93eI7BzGT5y-o8DxvKjQYVmA1eCumJmiHk0VPAVB_laCAn_9zgmodtYNTUwAWmO39PxBw88JsQbAGncZwQ_GfUdhBhay3GTUSRAUSK0rjv8LIXTgkHwS9lPEnDUYJpEZlX7QB3vh-Tjs05reOCpzrczm6d7x2lXw6itrQdUkKi9L5Qs7dwuH-A8PYeqFr5TpDJYQ8DFkdbFDfnLT5JeTK6bJ3m" loading="lazy" />
+                                            </div>
+                                            <div class="flex-1">
+                                                <div class="flex justify-between items-center">
+                                                    <h3 class="text-lg font-bold text-text-light dark:text-text-dark">Javier Morales</h3>
+                                                    <span class="text-sm text-text-light/70 dark:text-text-dark/70">Hace un mes</span>
+                                                </div>
+                                                <div class="flex items-center gap-1 mt-1 text-primary">
+                                                    <span class="material-symbols-outlined text-base">star</span>
+                                                    <span class="material-symbols-outlined text-base">star</span>
+                                                    <span class="material-symbols-outlined text-base">star</span>
+                                                    <span class="material-symbols-outlined text-base">star</span>
+                                                    <span class="material-symbols-outlined text-base">star</span>
+                                                </div>
+                                                <p class="mt-3 text-text-light/90 dark:text-text-dark/90 leading-relaxed">"Simplemente espectacular. La atención al detalle es increíble, desde la presentación de los platos hasta la decoración del lugar. FESTA es mi nuevo lugar favorito."</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <footer class="mt-20 border-t border-solid border-gray-200 dark:border-white/10 pt-10 pb-6 px-4 sm:px-6 lg:px-10 animate-on-scroll">
+                <div class="px-4 md:px-10 lg:px-20 xl:px-40">
+                    <div class="max-w-6xl mx-auto">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div class="flex flex-col items-center md:items-start">
+                                <a href="Inicio.html" class="flex items-center gap-4 text-primary">
+                                    <div class="size-6">
+                                        <svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M13.8261 30.5736C16.7203 29.8826 20.2244 29.4783 24 29.4783C27.7756 29.4783 31.2797 29.8826 34.1739 30.5736C36.9144 31.2278 39.9967 32.7669 41.3563 33.8352L24.8486 7.36089C24.4571 6.73303 23.5429 6.73303 23.1514 7.36089L6.64374 33.8352C8.00331 32.7669 11.0856 31.2278 13.8261 30.5736Z" fill="currentColor"></path><path clip-rule="evenodd" d="M39.998 35.764C39.9944 35.7463 39.9875 35.7155 39.9748 35.6706C39.9436 35.5601 39.8949 35.4259 39.8346 35.2825C39.8168 35.2403 39.7989 35.1993 39.7813 35.1602C38.5103 34.2887 35.9788 33.0607 33.7095 32.5189C30.9875 31.8691 27.6413 31.4783 24 31.4783C20.3587 31.4783 17.0125 31.8691 14.2905 32.5189C12.0012 33.0654 9.44505 34.3104 8.18538 35.1832C8.17384 35.2075 8.16216 35.233 8.15052 35.2592C8.09919 35.3751 8.05721 35.4886 8.02977 35.589C8.00356 35.6848 8.00039 35.7333 8.00004 35.7388C8.00004 35.739 8 35.7393 8.00004 35.7388C8.00004 35.7641 8.0104 36.0767 8.68485 36.6314C9.34546 37.1746 10.4222 37.7531 11.9291 38.2772C14.9242 39.319 19.1919 40 24 40C28.8081 40 33.0758 39.319 36.0709 38.2772C37.5778 37.7531 38.6545 37.1746 39.3151 36.6314C39.9006 36.1499 39.9857 35.8511 39.998 35.764ZM4.95178 32.7688L21.4543 6.30267C22.6288 4.4191 25.3712 4.41909 26.5457 6.30267L43.0534 32.777C43.0709 32.8052 43.0878 32.8338 43.104 32.8629L41.3563 33.8352C43.104 32.8629 43.1038 32.8626 43.104 32.8629L43.1051 32.865L43.1065 32.8675L43.1101 32.8739L43.1199 32.8918C43.1276 32.906 43.1377 32.9246 43.1497 32.9473C43.1738 32.9925 43.2062 33.0545 43.244 33.1299C43.319 33.2792 43.4196 33.489 43.5217 33.7317C43.6901 34.1321 44 34.9311 44 35.7391C44 37.4427 43.003 38.7775 41.8558 39.7209C40.6947 40.6757 39.1354 41.4464 37.385 42.0552C33.8654 43.2794 29.133 44 24 44C18.867 44 14.1346 43.2794 10.615 42.0552C8.86463 41.4464 7.30529 40.6757 6.14419 39.7209C4.99695 38.7775 3.99999 37.4427 3.99999 35.7391C3.99999 34.8725 4.29264 34.0922 4.49321 33.6393C4.60375 33.3898 4.71348 33.1804 4.79687 33.0311C4.83898 32.9556 4.87547 32.8935 4.9035 32.8471C4.91754 32.8238 4.92954 32.8043 4.93916 32.7889L4.94662 32.777L4.95178 32.7688ZM35.9868 29.004L24 9.77997L12.0131 29.004C12.4661 28.8609 12.9179 28.7342 13.3617 28.6282C16.4281 27.8961 20.0901 27.4783 24 27.4783C27.9099 27.4783 31.5719 27.8961 34.6383 28.6282C35.082 28.7342 35.5339 28.8609 35.9868 29.004Z" fill="currentColor" fill-rule="evenodd"></path></svg>
+                                    </div>
+                                    <h2 class="text-text-light dark:text-text-dark text-lg font-bold leading-tight tracking-[-0.015em]">FESTA</h2>
+                                </a>
+                            </div>
+                            <div class="text-center md:text-left">
+                                <h3 class="font-bold mb-2">Contacto</h3>
+                                <p class="text-sm">Av. Andrés Avelino Cáceres, Piura, Perú</p>
+                                <p class="text-sm">+51 908 880 120</p>
+                                <p class="text-sm">contacto@festa.com</p>
+                            </div>
+                            <div class="text-center md:text-left">
+                                <h3 class="font-bold mb-2">Horarios</h3>
+                                <p class="text-sm">Lunes - Miércoles: 8:00 am - 23:00 pm</p>
+                                <p class="text-sm">Viernes - Sábado: 12:00 pm - 03:00 am</p>
+                                <p class="text-sm">Jueves y Domingo: 12:00 pm - 23:00 pm</p>
+                            </div>
+                        </div>
+                        <div class="flex justify-center items-center mt-8 gap-4">
+                            <a class="text-text-light dark:text-text-dark hover:text-primary transition-all duration-300 transform hover:-translate-y-0.5" href="https://www.facebook.com/profile.php?id=61554950874731"><svg class="feather feather-facebook" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                            <a class="text-text-light dark:text-text-dark hover:text-primary transition-all duration-300 transform hover:-translate-y-0.5" href="https://www.instagram.com/festa_rest/%20target="><svg class="feather feather-instagram" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg></a>
+                        </div>
+                        <div class="text-center text-xs text-text-light/70 dark:text-text-dark/70 mt-8">
+                            <p>© 2024 FESTA. Todos los derechos reservados. | <a class="hover:text-primary" href="privacidad.html">Política de Privacidad</a></p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            </div>
+    </div>
+    
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.1 
+        });
+
+        const targets = document.querySelectorAll(".animate-on-scroll");
+        targets.forEach((target) => {
+          observer.observe(target);
+        });
+      });
+    </script>
+</body>
+</html>

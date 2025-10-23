@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Menú - FESTA Restobar</title>
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#B91C1C",
+                        "background-light": "#F8F8F8",
+                        "background-dark": "#221210",
+                        "text-light": "#333333",
+                        "text-dark": "#F8F8F8"
+                    },
+                    fontFamily: {
+                        "display": ["Epilogue", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+        
+        body {
+            font-family: 'Epilogue', sans-serif;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        header {
+            animation: fadeInDown 0.8s ease-out forwards;
+            will-change: opacity, transform;
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            will-change: opacity, transform;
+        }
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+    <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+        <div class="layout-container flex h-full grow flex-col">
+            
+            <header class="sticky top-0 z-50 bg-background-light dark:bg-background-dark shadow-md">
+                <div class="px-4 md:px-10 lg:px-20 xl:px-40">
+                    <div class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 dark:border-white/10 px-4 md:px-10 py-3">
+                        
+                        <a href="Inicio.html" class="flex items-center gap-4 text-primary">
+                            <div class="size-6 text-primary">
+                                <svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M13.8261 30.5736C16.7203 29.8826 20.2244 29.4783 24 29.4783C27.7756 29.4783 31.2797 29.8826 34.1739 30.5736C36.9144 31.2278 39.9967 32.7669 41.3563 33.8352L24.8486 7.36089C24.4571 6.73303 23.5429 6.73303 23.1514 7.36089L6.64374 33.8352C8.00331 32.7669 11.0856 31.2278 13.8261 30.5736Z" fill="currentColor"></path><path clip-rule="evenodd" d="M39.998 35.764C39.9944 35.7463 39.9875 35.7155 39.9748 35.6706C39.9436 35.5601 39.8949 35.4259 39.8346 35.2825C39.8168 35.2403 39.7989 35.1993 39.7813 35.1602C38.5103 34.2887 35.9788 33.0607 33.7095 32.5189C30.9875 31.8691 27.6413 31.4783 24 31.4783C20.3587 31.4783 17.0125 31.8691 14.2905 32.5189C12.0012 33.0654 9.44505 34.3104 8.18538 35.1832C8.17384 35.2075 8.16216 35.233 8.15052 35.2592C8.09919 35.3751 8.05721 35.4886 8.02977 35.589C8.00356 35.6848 8.00039 35.7333 8.00004 35.7388C8.00004 35.739 8 35.7393 8.00004 35.7388C8.00004 35.7641 8.0104 36.0767 8.68485 36.6314C9.34546 37.1746 10.4222 37.7531 11.9291 38.2772C14.9242 39.319 19.1919 40 24 40C28.8081 40 33.0758 39.319 36.0709 38.2772C37.5778 37.7531 38.6545 37.1746 39.3151 36.6314C39.9006 36.1499 39.9857 35.8511 39.998 35.764ZM4.95178 32.7688L21.4543 6.30267C22.6288 4.4191 25.3712 4.41909 26.5457 6.30267L43.0534 32.777C43.0709 32.8052 43.0878 32.8338 43.104 32.8629L41.3563 33.8352C43.104 32.8629 43.1038 32.8626 43.104 32.8629L43.1051 32.865L43.1065 32.8675L43.1101 32.8739L43.1199 32.8918C43.1276 32.906 43.1377 32.9246 43.1497 32.9473C43.1738 32.9925 43.2062 33.0545 43.244 33.1299C43.319 33.2792 43.4196 33.489 43.5217 33.7317C43.6901 34.1321 44 34.9311 44 35.7391C44 37.4427 43.003 38.7775 41.8558 39.7209C40.6947 40.6757 39.1354 41.4464 37.385 42.0552C33.8654 43.2794 29.133 44 24 44C18.867 44 14.1346 43.2794 10.615 42.0552C8.86463 41.4464 7.30529 40.6757 6.14419 39.7209C4.99695 38.7775 3.99999 37.4427 3.99999 35.7391C3.99999 34.8725 4.29264 34.0922 4.49321 33.6393C4.60375 33.3898 4.71348 33.1804 4.79687 33.0311C4.83898 32.9556 4.87547 32.8935 4.9035 32.8471C4.91754 32.8238 4.92954 32.8043 4.93916 32.7889L4.94662 32.777L4.95178 32.7688ZM35.9868 29.004L24 9.77997L12.0131 29.004C12.4661 28.8609 12.9179 28.7342 13.3617 28.6282C16.4281 27.8961 20.0901 27.4783 24 27.4783C27.9099 27.4783 31.5719 27.8961 34.6383 28.6282C35.082 28.7342 35.5339 28.8609 35.9868 29.004Z" fill="currentColor" fill-rule="evenodd"></path></svg>
+                            </div>
+                            <h1 class="text-text-light dark:text-text-dark text-xl font-bold leading-tight tracking-[-0.015em]">FESTA</h1>
+                        </a>
+                        
+                        <div class="flex flex-1 justify-end gap-8">
+                            <nav class="hidden md:flex items-center gap-9">
+                                <a class="text-primary dark:text-primary text-sm font-bold leading-normal" href="Menú.html" aria-current="page">Menú</a>
+                                <a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary transition-all duration-300 transform hover:-translate-y-0.5" href="Nosotros.html">Nosotros</a>
+                                <a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary transition-all duration-300 transform hover:-translate-y-0.5" href="Galeria.html">Galería</a>
+                                <a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary transition-all duration-300 transform hover:-translate-y-0.5" href="Reseñas.html">Reseñas</a>
+                                <a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary transition-all duration-300 transform hover:-translate-y-0.5" href="Contacto.html">Contacto</a>
+                            </nav>
+                            
+                            <a href="Reservas.html" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+                                <span class="truncate">Reservar una Mesa</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <main class="px-4 md:px-10 lg:px-20 xl:px-40 flex flex-1 justify-center py-10">
+                <div class="layout-content-container flex flex-col max-w-5xl flex-1">
+                    
+                    <div class="flex flex-wrap justify-between gap-3 p-4 animate-on-scroll">
+                        <div class="flex min-w-72 flex-col gap-3">
+                            <p class="text-text-light dark:text-text-dark text-5xl font-black leading-tight tracking-[-0.033em]">Nuestro Menú</p>
+                            <p class="text-text-light/70 dark:text-text-dark/70 text-lg font-normal leading-normal">Descubre los sabores de FESTA</p>
+                        </div>
+                    </div>
+                    
+                    <nav class="flex flex-wrap gap-x-6 gap-y-3 px-4 py-6 border-y border-solid border-gray-200 dark:border-white/10 animate-on-scroll">
+                        <a href="#entradas" class="text-text-light/80 dark:text-text-dark/70 hover:text-primary transition-colors text-sm font-medium">Entradas</a>
+                        <a href="#platos-principales" class="text-text-light/80 dark:text-text-dark/70 hover:text-primary transition-colors text-sm font-medium">Platos Principales</a>
+                        <a href="#postres" class="text-text-light/80 dark:text-text-dark/70 hover:text-primary transition-colors text-sm font-medium">Postres</a>
+                        <a href="#bebidas" class="text-text-light/80 dark:text-text-dark/70 hover:text-primary transition-colors text-sm font-medium">Bebidas</a>
+                    </nav>
+
+                    <section class="pt-16" id="entradas">
+                        <h2 class="text-primary text-3xl font-bold leading-tight tracking-[-0.015em] px-4 pb-6 pt-5 animate-on-scroll">Entradas</h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
+                            
+                            <div class="flex flex-col gap-3 pb-3 bg-white dark:bg-background-dark/50 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 animate-on-scroll">
+                                <div class="w-full aspect-video overflow-hidden relative">
+                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAF8oZVbXP9dsr3GPj3oh3HH1_k6uNB5Lztb_ZTIKkzFYc3B9FLpf7lJL7X3H6HPWncbZl-z8bap47HtatoUz4jMyPWC2HKPw2pE4FyyPiB5DERJfdBsYvwJTJEmUGivEvtT9TL5sW4VRG8OrLEyiOWtNCSbDv0ayBJ_-tz5uCk6eE-4KEwjRtfL8ptFJSzErmCcBQ9RuCdm6DMjLddmWe2uTncHQDyVL4kY8YMizksJ3OEKNJM4E4nmjPQQjsjqMSl-TZ3LfCqZDSU" alt="Bruschetta de Tomate y Albahaca" loading="lazy" width="600" height="338" class="w-full h-full object-cover object-center absolute inset-0" />
+                                </div>
+                                <div class="p-4 flex flex-col flex-grow">
+                                    <p class="text-text-light dark:text-text-dark text-lg font-semibold leading-normal">Bruschetta de Tomate y Albahaca</p>
+                                    <p class="text-text-light/80 dark:text-text-dark/70 text-sm font-normal leading-normal mt-1 flex-grow">Pan tostado con tomates frescos, albahaca y aceite de oliva.</p>
+                                    <p class="text-primary text-lg font-bold leading-normal mt-4">$8.50</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex flex-col gap-3 pb-3 bg-white dark:bg-background-dark/50 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 animate-on-scroll" style="animation-delay: 100ms;">
+                                <div class="w-full aspect-video overflow-hidden relative">
+                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEcMM6B_9wAmHdeY73J0ULS7tO7d4Sp29H-8Isz3HIg54htywccA7ydKQHSs5pn9C68TcxixU7O2wWkBN5C_vq0nYbFtCLfxuP01K9CttaYNCH71HE-AQ8nPf41kB0HApsvxhAJd5db6tYmWruT374PJ2-roroyD-z6qSI7MuDYyIo4W_WjImS2uFAeZzsly5TR3Gmv-qD2jjjugpucXfHOWs41yshVCsFcMQxO09OJC6LZ4l51PTIf3Z9_Xpp_NpY9JHFqpb3fZFy" alt="Carpaccio de Res" loading="lazy" width="600" height="338" class="w-full h-full object-cover object-center absolute inset-0" />
+                                </div>
+                                <div class="p-4 flex flex-col flex-grow">
+                                    <p class="text-text-light dark:text-text-dark text-lg font-semibold leading-normal">Carpaccio de Res</p>
+                                    <p class="text-text-light/80 dark:text-text-dark/70 text-sm font-normal leading-normal mt-1 flex-grow">Finas láminas de res con alcaparras, rúcula y parmesano.</p>
+                                    <p class="text-primary text-lg font-bold leading-normal mt-4">$12.00</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex flex-col gap-3 pb-3 bg-white dark:bg-background-dark/50 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 animate-on-scroll" style="animation-delay: 200ms;">
+                                <div class="w-full aspect-video overflow-hidden relative">
+                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdxH8cnpObetNwdGbiZmER10TuOLX5OaCiZK5j7yZYS5JkLl1JJv7nximALdfHwucL9yda25kKPT8jLUUb9llVIfZpEXzODGoG6GNambfF9blnyqQf9bYJlawqktGMtUVyTSsMY7sz6Yu3JmrOWmYZqVpdG3jrzCBtaCwPq9tIwNHUlm35BhJ52rJ5wQOkaetUp2INTlKQrziyofRCMAwExxxvn0oXY4HerNcXcXt_tHh56KyY9GDO4ZIrvTyyg-9OGN72fCdnNL9v" alt="Provoleta a la Parrilla" loading="lazy" width="600" height="338" class="w-full h-full object-cover object-center absolute inset-0" />
+                                </div>
+                                <div class="p-4 flex flex-col flex-grow">
+                                    <p class="text-text-light dark:text-text-dark text-lg font-semibold leading-normal">Provoleta a la Parrilla</p>
+                                    <p class="text-text-light/80 dark:text-text-dark/70 text-sm font-normal leading-normal mt-1 flex-grow">Queso provolone a la parrilla con orégano y aceite de oliva.</p>
+                                    <p class="text-primary text-lg font-bold leading-normal mt-4">$10.00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="pt-16" id="platos-principales">
+                        <h2 class="text-primary text-3xl font-bold leading-tight tracking-[-0.015em] px-4 pb-6 pt-5 animate-on-scroll">Platos Principales</h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
+                            <div class="flex flex-col gap-3 pb-3 bg-white dark:bg-background-dark/50 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 animate-on-scroll">
+                                <div class="w-full aspect-video overflow-hidden relative">
+                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiavO3opNTrcTyLhRNbHQS2f17_KLwKvvAyabloIe4ajW0tx8gnmeowdCzctFaRkKO5Hp7XIPZ5pkQlZpRlhKpdLR-z81S_poid7GSi3D-t5cyoSQJvDs0f0MAx-eP3g_Wwk5DvyKNUtCV6PesBT_71GHn30wyWtUFpG0aV9j5vGg4gr_qKQuMO5V6vChEUf2cxIkNwDXgTp2Gl99MP2fhEpRr11EGPYK6Kf5JFKnhzkEsRN8zKH-q5yzVlxT1nfXTMsI968Q_nph0" alt="Lasaña a la Boloñesa" loading="lazy" width="600" height="338" class="w-full h-full object-cover object-center absolute inset-0" />
+                                </div>
+                                <div class="p-4 flex flex-col flex-grow">
+                                    <p class="text-text-light dark:text-text-dark text-lg font-semibold leading-normal">Lasaña a la Boloñesa</p>
+                                    <p class="text-text-light/80 dark:text-text-dark/70 text-sm font-normal leading-normal mt-1 flex-grow">Capas de pasta fresca, salsa boloñesa casera y bechamel gratinada.</p>
+                                    <p class="text-primary text-lg font-bold leading-normal mt-4">$18.00</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-3 pb-3 bg-white dark:bg-background-dark/50 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 animate-on-scroll" style="animation-delay: 100ms;">
+                                <div class="w-full aspect-video overflow-hidden relative">
+                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBF266F5e9rsGo1uPjdMBcesdBi2DPMCxTYxA9-iH2yuTx9IFAH2gqUo524nHtVLXs31FVg3KJuBCsa-oaHgwY0S6pEG3J1HMP_KuPsIYIbnw0X-GiS6Ed6WWwtoyfvfAZddGJ8pgFQYQvoYIcv6aO_x47TrUhMoOWEv6SzrneOp256SWkHM4GrB5HhFjBF6or-xooUnO_s6X_zU94fnEfSx7AGz_16SbQuRyLTeoW6-RRbLIWZtB2IL7R_MYPjDibxT9WgMEBUbS3l" alt="Risotto de Hongos" loading="lazy" width="600" height="338" class="w-full h-full object-cover object-center absolute inset-0" />
+                                </div>
+                                <div class="p-4 flex flex-col flex-grow">
+                                    <p class="text-text-light dark:text-text-dark text-lg font-semibold leading-normal">Risotto de Hongos</p>
+                                    <p class="text-text-light/80 dark:text-text-dark/70 text-sm font-normal leading-normal mt-1 flex-grow">Arroz Arborio cremoso con variedad de hongos silvestres y aceite de trufa.</p>
+                                    <p class="text-primary text-lg font-bold leading-normal mt-4">$22.50</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-3 pb-3 bg-white dark:bg-background-dark/50 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 animate-on-scroll" style="animation-delay: 200ms;">
+                                <div class="w-full aspect-video overflow-hidden relative">
+                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfF0O2cpRJYDSSeWexEKfK0OtU1o4lV4_iW33fqN4ncurc8QNySAYu2keGMa4V-H8BydBr1A2VNs88GOX_SSUst7K8j-_nzeIJfg6WqMxJaCmqXwRzp0M2vazU1YGWJJfG302CMfkNH07IwyTBdOyNM48_0wcoXZG6j7UHg_oOoB-XylTOFA90N7wKUEy3kr4kU2PKMJVSHP4yEsVaZLEK4aGF_QREb4QnB7QkrQNRCseTPZBn9JrROtWo5XxIBQzXJfcuEYVzxJa6" alt="Salmón a la Plancha" loading="lazy" width="600" height="338" class="w-full h-full object-cover object-center absolute inset-0" />
+                                </div>
+                                <div class="p-4 flex flex-col flex-grow">
+                                    <p class="text-text-light dark:text-text-dark text-lg font-semibold leading-normal">Salmón a la Plancha</p>
+                                    <p class="text-text-light/80 dark:text-text-dark/70 text-sm font-normal leading-normal mt-1 flex-grow">Filete de salmón fresco a la plancha con espárragos y limón.</p>
+                                    <p class="text-primary text-lg font-bold leading-normal mt-4">$25.00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="pt-16" id="postres">
+                        <h2 class="text-primary text-3xl font-bold leading-tight tracking-[-0.015em] px-4 pb-6 pt-5 animate-on-scroll">Postres</h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
+                            <div class="flex flex-col gap-3 pb-3 bg-white dark:bg-background-dark/50 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 animate-on-scroll">
+                                <div class="w-full aspect-video overflow-hidden relative">
+                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbehuArjALDQfE4N_gb7FZR9q9gtmH52zVNR5PdzMi2vmxIX6JXgtVl5VQJHaz7bQAxzssWV_JTjqaSlc-Injf5CV3mBw02GwleKFDgZZETHnOuBawOBIFq8eDS4SDsBjtIEqU5BSCH5Z78x_aLbje4ZDA4AQ_GxoIHQ8yzg9SbV8KzdpkH1ZkwHIqlpwwS069TA0zU_pDwbm2IQUnABOI1KWKGK1UhqQW35bwSV_fJHzNGLKJ5rsedcJIiFemyxgQ7t4ykAw9A67q" alt="Tiramisú Clásico" loading="lazy" width="600" height="338" class="w-full h-full object-cover object-center absolute inset-0" />
+                                </div>
+                                <div class="p-4 flex flex-col flex-grow">
+                                    <p class="text-text-light dark:text-text-dark text-lg font-semibold leading-normal">Tiramisú Clásico</p>
+                                    <p class="text-text-light/80 dark:text-text-dark/70 text-sm font-normal leading-normal mt-1 flex-grow">Capas de bizcocho de soletilla empapado en café, crema de mascarpone y cacao.</p>
+                                    <p class="text-primary text-lg font-bold leading-normal mt-4">$9.00</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-3 pb-3 bg-white dark:bg-background-dark/50 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 animate-on-scroll" style="animation-delay: 100ms;">
+                                <div class="w-full aspect-video overflow-hidden relative">
+                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0bvw0kF5xR_JXBdl3NGuWsy1GkQF8ObQ1uiU7FjNCYzERoUDyCgKHCQPOvKYlTgkEmxKRbY05jXLe6U-AOl2r8H2GnjlJ3MtHUQGbvScjtTJ_5NSWjuklPz8SG6toj1OcSuaHwThrfoYP57cvaxZCze6XPU5ccf99SL4SEYg92B2vTu7Bl1lVugG19-rsRzcl2tfmz7Ta4e6eQt0bpd0Sa9m36CDYK1q7AeXss72og_i9JqlbvjJ49Pptw4ua5cMSmrL2eNiP1my3" alt="Panna Cotta" loading="lazy" width="600" height="338" class="w-full h-full object-cover object-center absolute inset-0" />
+                                </div>
+                                <div class="p-4 flex flex-col flex-grow">
+                                    <p class="text-text-light dark:text-text-dark text-lg font-semibold leading-normal">Panna Cotta</p>
+                                    <p class="text-text-light/80 dark:text-text-dark/70 text-sm font-normal leading-normal mt-1 flex-grow">Postre de nata cocida con salsa de frutos rojos.</p>
+                                    <p class="text-primary text-lg font-bold leading-normal mt-4">$8.00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="pt-16" id="bebidas">
+                        <h2 class="text-primary text-3xl font-bold leading-tight tracking-[-0.015em] px-4 pb-6 pt-5 animate-on-scroll">Bebidas</h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
+                            <div class="flex flex-col gap-3 pb-3 bg-white dark:bg-background-dark/50 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 animate-on-scroll">
+                                <div class="w-full aspect-video overflow-hidden relative">
+                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEYqytQkh6hMHx8Y1QjEvp-Njo7aQM-zvfv6PQfznHBeUg952JiW01rWJjFP50kTkQRA545WyUDAvm--lLV4cV9ImJ6XD-OzRVR6M0YRmJkqD84VFRIqVdQW5h19rf5_3z_tXo97-NMXv7HQvvBHCULzQ3tWATYU0dlxKBke2hvNjlrkfUvLbIWxtq2fHEljEe-zTNLXxLd-Mt-aCIMYE8U8ep-yZDNZ1DyjKZyAdBMGi-Nx-WjDkZM13qLXjslXNZdXQZlTLegM7x" alt="Copa de Vino Tinto" loading="lazy" width="600" height="338" class="w-full h-full object-cover object-center absolute inset-0" />
+                                </div>
+                                <div class="p-4 flex flex-col flex-grow">
+                                    <p class="text-text-light dark:text-text-dark text-lg font-semibold leading-normal">Vinos</p>
+                                    <p class="text-text-light/80 dark:text-text-dark/70 text-sm font-normal leading-normal mt-1 flex-grow">Amplia selección de vinos tintos, blancos y rosados por copa o botella.</p>
+                                    <p class="text-primary text-lg font-bold leading-normal mt-4">Desde $7.00</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-3 pb-3 bg-white dark:bg-background-dark/50 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 animate-on-scroll" style="animation-delay: 100ms;">
+                                <div class="w-full aspect-video overflow-hidden relative">
+                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx07rkSvG997xd4tG0kdCVcQeUtog3Ydaj5MXY6hI3BmmwLCECZcSF8_OnObE7aYXIFr-fiysjmHtND85CXRR5gt9auJZ4hEIebUEbRP5pTAWH1qMkU9O1a9dcnxH4F2HFC8VLRtkHGtu0KrrIU_xyKza6HeAGYPVPvD4girBSe_Et7hHxlnP7nbpC23pJ_IfUUiq53cjKfvOhb-GDXtEiHK-Y4OUNW5RPyX_B74x1wKLxlV-wV4LyrESMxeZQN1lNnT6Dd5Bi5w5I" alt="Cóctel Negroni" loading="lazy" width="600" height="338" class="w-full h-full object-cover object-center absolute inset-0" />
+                                </div>
+                                <div class="p-4 flex flex-col flex-grow">
+                                    <p class="text-text-light dark:text-text-dark text-lg font-semibold leading-normal">Cócteles</p>
+                                    <p class="text-text-light/80 dark:text-text-dark/70 text-sm font-normal leading-normal mt-1 flex-grow">Clásicos y de autor, preparados por nuestros expertos bartenders.</p>
+                                    <p class="text-primary text-lg font-bold leading-normal mt-4">Desde $12.00</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-3 pb-3 bg-white dark:bg-background-dark/50 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 animate-on-scroll" style="animation-delay: 200ms;">
+                                <div class="w-full aspect-video overflow-hidden relative">
+                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDMX2vzo6kq8xQeMclt7tpCs8opxBP2VfkVQ2zk4CibfHJDnbAXX8E-F0LkA5MbIre4A7NOfzen2b-jP3kTCEaqYMV9hxq6zNIOErqejzI16Cyk7NrPRvM-he00Xeg-PoLFyALIgqzeyxKeQtASwK9RIwcfRYT1DiuG0yNcDJTpS5rg1agW7oO8N_JkuomLM8oAysr-K1L8jkUENMmx5N7kGtzdRiZ3xGW-Gbz0hx8aiz37uLEwEaf7Uudh5zwya_5sVCmEBfze3Tn" alt="Limonada con menta" loading="lazy" width="600" height="338" class="w-full h-full object-cover object-center absolute inset-0" />
+                                </div>
+                                <div class="p-4 flex flex-col flex-grow">
+                                    <p class="text-text-light dark:text-text-dark text-lg font-semibold leading-normal">Sin Alcohol</p>
+                                    <p class="text-text-light/80 dark:text-text-dark/70 text-sm font-normal leading-normal mt-1 flex-grow">Refrescos, zumos naturales y mocktails creativos.</p>
+                                    <p class="text-primary text-lg font-bold leading-normal mt-4">Desde $4.00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </main>
+            
+            <footer class="mt-20 border-t border-solid border-gray-200 dark:border-white/10 pt-10 pb-6 px-4 sm:px-6 lg:px-10 animate-on-scroll">
+                <div class="px-4 md:px-10 lg:px-20 xl:px-40">
+                    <div class="max-w-6xl mx-auto">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div class="flex flex-col items-center md:items-start">
+                                <a href="Inicio.html" class="flex items-center gap-4 text-primary">
+                                    <div class="size-6">
+                                        <svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M13.8261 30.5736C16.7203 29.8826 20.2244 29.4783 24 29.4783C27.7756 29.4783 31.2797 29.8826 34.1739 30.5736C36.9144 31.2278 39.9967 32.7669 41.3563 33.8352L24.8486 7.36089C24.4571 6.73303 23.5429 6.73303 23.1514 7.36089L6.64374 33.8352C8.00331 32.7669 11.0856 31.2278 13.8261 30.5736Z" fill="currentColor"></path><path clip-rule="evenodd" d="M39.998 35.764C39.9944 35.7463 39.9875 35.7155 39.9748 35.6706C39.9436 35.5601 39.8949 35.4259 39.8346 35.2825C39.8168 35.2403 39.7989 35.1993 39.7813 35.1602C38.5103 34.2887 35.9788 33.0607 33.7095 32.5189C30.9875 31.8691 27.6413 31.4783 24 31.4783C20.3587 31.4783 17.0125 31.8691 14.2905 32.5189C12.0012 33.0654 9.44505 34.3104 8.18538 35.1832C8.17384 35.2075 8.16216 35.233 8.15052 35.2592C8.09919 35.3751 8.05721 35.4886 8.02977 35.589C8.00356 35.6848 8.00039 35.7333 8.00004 35.7388C8.00004 35.739 8 35.7393 8.00004 35.7388C8.00004 35.7641 8.0104 36.0767 8.68485 36.6314C9.34546 37.1746 10.4222 37.7531 11.9291 38.2772C14.9242 39.319 19.1919 40 24 40C28.8081 40 33.0758 39.319 36.0709 38.2772C37.5778 37.7531 38.6545 37.1746 39.3151 36.6314C39.9006 36.1499 39.9857 35.8511 39.998 35.764ZM4.95178 32.7688L21.4543 6.30267C22.6288 4.4191 25.3712 4.41909 26.5457 6.30267L43.0534 32.777C43.0709 32.8052 43.0878 32.8338 43.104 32.8629L41.3563 33.8352C43.104 32.8629 43.1038 32.8626 43.104 32.8629L43.1051 32.865L43.1065 32.8675L43.1101 32.8739L43.1199 32.8918C43.1276 32.906 43.1377 32.9246 43.1497 32.9473C43.1738 32.9925 43.2062 33.0545 43.244 33.1299C43.319 33.2792 43.4196 33.489 43.5217 33.7317C43.6901 34.1321 44 34.9311 44 35.7391C44 37.4427 43.003 38.7775 41.8558 39.7209C40.6947 40.6757 39.1354 41.4464 37.385 42.0552C33.8654 43.2794 29.133 44 24 44C18.867 44 14.1346 43.2794 10.615 42.0552C8.86463 41.4464 7.30529 40.6757 6.14419 39.7209C4.99695 38.7775 3.99999 37.4427 3.99999 35.7391C3.99999 34.8725 4.29264 34.0922 4.49321 33.6393C4.60375 33.3898 4.71348 33.1804 4.79687 33.0311C4.83898 32.9556 4.87547 32.8935 4.9035 32.8471C4.91754 32.8238 4.92954 32.8043 4.93916 32.7889L4.94662 32.777L4.95178 32.7688ZM35.9868 29.004L24 9.77997L12.0131 29.004C12.4661 28.8609 12.9179 28.7342 13.3617 28.6282C16.4281 27.8961 20.0901 27.4783 24 27.4783C27.9099 27.4783 31.5719 27.8961 34.6383 28.6282C35.082 28.7342 35.5339 28.8609 35.9868 29.004Z" fill="currentColor" fill-rule="evenodd"></path></svg>
+                                    </div>
+                                    <h2 class="text-text-light dark:text-text-dark text-lg font-bold leading-tight tracking-[-0.015em]">FESTA</h2>
+                                </a>
+                            </div>
+                            <div class="text-center md:text-left">
+                                <h3 class="font-bold mb-2">Contacto</h3>
+                                <p class="text-sm">Av. Andrés Avelino Cáceres, Piura, Perú</p>
+                                <p class="text-sm">+51 908 880 120</p>
+                                <p class="text-sm">contacto@festa.com</p>
+                            </div>
+                            <div class="text-center md:text-left">
+                                <h3 class="font-bold mb-2">Horarios</h3>
+                                <p class="text-sm">Lunes - Miércoles: 8:00 am - 23:00 pm</p>
+                                <p class="text-sm">Viernes - Sábado: 12:00 pm - 03:00 am</p>
+                                <p class="text-sm">Jueves y Domingo: 12:00 pm - 23:00 pm</p>
+                            </div>
+                        </div>
+                        <div class="flex justify-center items-center mt-8 gap-4">
+                            <a class="text-text-light dark:text-text-dark hover:text-primary transition-all duration-300 transform hover:-translate-y-0.5" href="https://www.facebook.com/profile.php?id=61554950874731"><svg class="feather feather-facebook" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                            <a class="text-text-light dark:text-text-dark hover:text-primary transition-all duration-300 transform hover:-translate-y-0.5" href="https://www.instagram.com/festa_rest/%20target="><svg class="feather feather-instagram" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg></a>
+                        </div>
+                        <div class="text-center text-xs text-text-light/70 dark:text-text-dark/70 mt-8">
+                            <p>© 2024 FESTA. Todos los derechos reservados. | <a class="hover:text-primary" href="privacidad.html">Política de Privacidad</a></p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.1 
+        });
+
+        const targets = document.querySelectorAll(".animate-on-scroll");
+        targets.forEach((target) => {
+          observer.observe(target);
+        });
+      });
+    </script>
+</body>
+</html>
