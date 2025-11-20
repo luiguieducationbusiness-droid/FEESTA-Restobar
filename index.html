@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>FESTA Restobar</title>
+    <link href="images/LogoFesta.svg" rel="icon" />
     
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 
@@ -41,55 +42,88 @@
         };
     </script>
     <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; /* Fill 0 para iconos outline */
+        }
+        
         /* Tipografía Secundaria para el cuerpo del texto */
         body {
             font-family: 'Tinos', serif;
             font-size: 16px;
             line-height: 1.6;
         }
-
         /* Tipografía Principal para los títulos */
         h1, h2 {
             font-family: 'Playfair Display', serif;
             font-weight: 900; /* Peso "Black" o 900 */
         }
 
-        /* --- ANIMACIÓN 1: "Fade-in" para el Header --- */
         @keyframes fadeInDown {
-          from {
-            opacity: 0;
-            transform: translateY(-20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         header {
-          /* Aplicamos la animación de carga al header */
-          animation: fadeInDown 0.8s ease-out forwards;
-          will-change: opacity, transform;
-        }
-        /* --- Fin Animación Header --- */
-        
-        /* --- Adaptabilidad movil --- */
-        @media (max-width: 768px) {
-          header nav {
-            display: none; /* Oculta la navegación en pantallas pequeñas */
-          }
+            animation: fadeInDown 0.8s ease-out forwards;
+            will-change: opacity, transform;
         }
 
-        /* Estilos para la animación de scroll */
         .animate-on-scroll {
-          opacity: 1;
-          transform: translateY(30px);
-          transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-          will-change: opacity, transform;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            will-change: opacity, transform;
         }
         .animate-on-scroll.is-visible {
-          opacity: 1;
-          transform: translateY(0);
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Estilos para animar el icono hamburguesa al abrir/cerrar */
+        #mobile-menu-button span {
+            transition: transform 0.3s ease, opacity 0.2s ease;
+            display: block;
+        }
+        /* Al abrir: convertir en "X" */
+        #mobile-menu-button.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+        #mobile-menu-button.open span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        #mobile-menu-button.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* --------- Mobile nav overlay override ---------
+            En móvil hacemos que #main-nav sea un overlay fijo
+            y nos aseguramos que tenga z-index y scroll si es necesario
+        --------------------------------------------------*/
+        @media (max-width: 767px) {
+          /* ocultamos por defecto con .hidden (Tailwind) */
+            #main-nav {
+            position: fixed;
+            inset: 0 0 0 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100vh;
+            padding-top: 72px; /* espacio para header; ajusta si tu header cambia */
+            background: rgba(69,15,4,0.95); /* fondo opaco para que se vea mejor */
+            z-index: 60;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            display: none; /* seguirá controlado por .hidden / JS */
+            }
+          /* cuando el script abre, añadimos .show */
+            #main-nav.show {
+            display: block;
+            }
+          /* mejor separación del contenido dentro del nav en móvil */
+            #main-nav > div {
+            padding: 1rem;
+            }
         }
     </style>
 </head>
@@ -134,7 +168,7 @@
                                         <span class="absolute block w-full h-[2px] bg-secondary bottom-0 left-0 transition-all duration-300 origin-center"></span>
                                     </div>
                                 </button>
-                                
+
                             </div>
                         </div>
                     </header>
@@ -145,8 +179,8 @@
                             <div class="@container">
                                 <div class="@[480px]:p-4">
                                     <div class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-center justify-center p-4 text-center" 
-                                         data-alt="A dimly lit, cozy restaurant interior with warm lighting and comfortable seating." 
-                                         style='background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%), url("https://static.wixstatic.com/media/331909_5c93268b6cb94db085f9e655e5041cd4~mv2.png");'>
+                                        data-alt="A dimly lit, cozy restaurant interior with warm lighting and comfortable seating." 
+                                        style='background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%), url("https://static.wixstatic.com/media/331909_5c93268b6cb94db085f9e655e5041cd4~mv2.png");'>
                                         
                                         <div class="flex flex-col gap-2">
                                             <h3 class="text-white text-4xl font-black leading-tight tracking-tight @[480px]:text-5xl">Donde cada plato es una celebración</h3>
@@ -169,23 +203,23 @@
                                 <div class="w-full gap-2 overflow-hidden bg-background-light dark:bg-background-dark @[480px]:gap-4 aspect-[3/2] rounded-xl grid grid-cols-[2fr_1fr]">
                                     
                                     <div class="w-full h-full relative overflow-hidden rounded-l-xl">
-                                      <img 
-                                        src="images/FestaFrontal.webp" 
-                                        alt="Un primer plano de la entrada a FESTA." 
-                                        loading="lazy" 
-                                        width="800" height="600"
-                                        class="w-full h-full object-cover object-center absolute inset-0" 
-                                      />
+                                        <img 
+                                            src="images/FestaFrontal.webp" 
+                                            alt="Un primer plano de la entrada a FESTA." 
+                                            loading="lazy" 
+                                            width="800" height="600"
+                                            class="w-full h-full object-cover object-center absolute inset-0" 
+                                        />
                                     </div>
 
                                     <div class="w-full h-full relative overflow-hidden rounded-r-xl">
-                                      <img 
-                                        src="https://static.wixstatic.com/media/331909_5e24268c2705477796a995eb9f0d4290~mv2.jpg" 
-                                        alt="Bartender preparando un cóctel colorido." 
-                                        loading="lazy" 
-                                        width="400" height="600"
-                                        class="w-full h-full object-cover object-center absolute inset-0" 
-                                      />
+                                        <img 
+                                            src="https://static.wixstatic.com/media/331909_5e24268c2705477796a995eb9f0d4290~mv2.jpg" 
+                                            alt="Bartender preparando un cóctel colorido." 
+                                            loading="lazy" 
+                                            width="400" height="600"
+                                            class="w-full h-full object-cover object-center absolute inset-0" 
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -197,22 +231,22 @@
                             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
                                 
                                 <div class="w-full h-64 relative overflow-hidden rounded-lg">
-                                  <img loading="lazy" width="600" height="400" src="https://static.wixstatic.com/media/331909_e85681f928be4ccba2b0d9fc92715319~mv2.jpg" alt="Cócteles de frutas, especialidad del hogar." class="w-full h-full object-cover object-center absolute inset-0">
+                                    <img loading="lazy" width="600" height="400" src="https://static.wixstatic.com/media/331909_e85681f928be4ccba2b0d9fc92715319~mv2.jpg" alt="Cócteles de frutas, especialidad del hogar." class="w-full h-full object-cover object-center absolute inset-0">
                                 </div>
                                 <div class="w-full h-64 relative overflow-hidden rounded-lg">
-                                  <img loading="lazy" width="600" height="400" src="https://static.wixstatic.com/media/331909_c0fd518846a1415bbd0dfe9afd1553c1~mv2.jpg" alt="Arroz con carne jugosa cocido a la perfección con tamales." class="w-full h-full object-cover object-center absolute inset-0">
+                                    <img loading="lazy" width="600" height="400" src="https://static.wixstatic.com/media/331909_c0fd518846a1415bbd0dfe9afd1553c1~mv2.jpg" alt="Arroz con carne jugosa cocido a la perfección con tamales." class="w-full h-full object-cover object-center absolute inset-0">
                                 </div>
                                 <div class="w-full h-64 relative overflow-hidden rounded-lg">
-                                  <img loading="lazy" width="600" height="400" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBS3pPv66-1PmPgcPkHj2VMyxWzUuXKujmWd8i-tddgfEqlLP6qhea8jOEyt94IroQyNj39NWZPQpsLCP97DaJZxDomRXMxBeSQAgC8SWGEQYvwVlfMXJ_8Tmj2P_-LJh8qFmWG47eCg9xP5EDmZr_T8ax82D0vqjJVNgpH1bn7VCsAdWQgplWM28-lV9020NzMYmq17oP_ujM0VcAlkrmjxqDGonbR_0QxTgHw3yO800wgGq3zTiWDNwmYG3-GIXQJajekFwltyWKh" alt="Un pastel de lava de chocolate con centro fundido." class="w-full h-full object-cover object-center absolute inset-0">
+                                    <img loading="lazy" width="600" height="400" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBS3pPv66-1PmPgcPkHj2VMyxWzUuXKujmWd8i-tddgfEqlLP6qhea8jOEyt94IroQyNj39NWZPQpsLCP97DaJZxDomRXMxBeSQAgC8SWGEQYvwVlfMXJ_8Tmj2P_-LJh8qFmWG47eCg9xP5EDmZr_T8ax82D0vqjJVNgpH1bn7VCsAdWQgplWM28-lV9020NzMYmq17oP_ujM0VcAlkrmjxqDGonbR_0QxTgHw3yO800wgGq3zTiWDNwmYG3-GIXQJajekFwltyWKh" alt="Un pastel de lava de chocolate con centro fundido." class="w-full h-full object-cover object-center absolute inset-0">
                                 </div>
                                 <div class="w-full h-64 relative overflow-hidden rounded-lg sm:col-span-2 lg:col-span-1">
-                                  <img loading="lazy" width="600" height="400" src="https://static.wixstatic.com/media/331909_4a7857ca4eab447e8d7480c2e555a325~mv2.jpg" alt="Un surtido de cócteles coloridos en la barra." class="w-full h-full object-cover object-center absolute inset-0">
+                                    <img loading="lazy" width="600" height="400" src="https://static.wixstatic.com/media/331909_4a7857ca4eab447e8d7480c2e555a325~mv2.jpg" alt="Un surtido de cócteles coloridos en la barra." class="w-full h-full object-cover object-center absolute inset-0">
                                 </div>
                                 <div class="w-full h-64 relative overflow-hidden rounded-lg">
-                                  <img loading="lazy" width="600" height="400" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCi_1TO5gozA8PaAZwNYBkJRcitD0b3K-Xi7Jlpl47BYHVdkaXU2rBw1KI64U74JYFuK6vvRag-Rtbdme1a5g-wiCRH0909KOdBlVxijP4MiopSUF2a7Ms8HP7AFCvF5v60Gai04n-e_proO9Oqvi__AV93ujskA2ygGmKspVQ8Bg8_hC-YvJ73xGYVqvGj9E5i1OF6-ZK9NodpiHe1QkkejdghQk4Yfbuv34AXxqK4ITKyhmJz_cR9OyqJ0geHfJRkFZRTF5PsoPWn" alt="El interior elegante y moderno del restobar FESTA." class="w-full h-full object-cover object-center absolute inset-0">
+                                    <img loading="lazy" width="600" height="400" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCi_1TO5gozA8PaAZwNYBkJRcitD0b3K-Xi7Jlpl47BYHVdkaXU2rBw1KI64U74JYFuK6vvRag-Rtbdme1a5g-wiCRH0909KOdBlVxijP4MiopSUF2a7Ms8HP7AFCvF5v60Gai04n-e_proO9Oqvi__AV93ujskA2ygGmKspVQ8Bg8_hC-YvJ73xGYVqvGj9E5i1OF6-ZK9NodpiHe1QkkejdghQk4Yfbuv34AXxqK4ITKyhmJz_cR9OyqJ0geHfJRkFZRTF5PsoPWn" alt="El interior elegante y moderno del restobar FESTA." class="w-full h-full object-cover object-center absolute inset-0">
                                 </div>
                                 <div class="w-full h-64 relative overflow-hidden rounded-lg">
-                                  <img loading="lazy" width="600" height="400" src="https://static.wixstatic.com/media/331909_fff1170235e64e11af7cbcc0e0f8cd56~mv2.jpg" alt="Especialidad de la carta." class="w-full h-full object-cover object-center absolute inset-0">
+                                    <img loading="lazy" width="600" height="400" src="https://static.wixstatic.com/media/331909_fff1170235e64e11af7cbcc0e0f8cd56~mv2.jpg" alt="Especialidad de la carta." class="w-full h-full object-cover object-center absolute inset-0">
                                 </div>
 
                             </div>
@@ -259,75 +293,99 @@
     </div>
 
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("is-visible");
-              observer.unobserve(entry.target);
-            }
-          });
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    observer.unobserve(entry.target);
+                }
+            });
         }, {
-          threshold: 0.1 
+            threshold: 0.1 
         });
 
         const targets = document.querySelectorAll(".animate-on-scroll");
         targets.forEach((target) => {
-          observer.observe(target);
+            observer.observe(target);
         });
-      });
+        });
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mainNav = document.getElementById('main-nav');
-            const menuIcon = document.getElementById('menu-icon'); // El span del icono
 
-            if (mobileMenuButton && mainNav && menuIcon) {
-                mobileMenuButton.addEventListener('click', (event) => {
-                    event.stopPropagation(); // Evita que el clic se propague al body
-                    // Alternar la visibilidad del menú
-                    mainNav.classList.toggle('hidden'); 
-                    
-                    // Cambiar el icono (menu <-> close)
-                    if (mainNav.classList.contains('hidden')) {
-                        menuIcon.textContent = 'menu'; // Icono de hamburguesa
-                        // Permitir scroll cuando el menú está cerrado
-                        document.body.style.overflow = ''; 
-                    } else {
-                        menuIcon.textContent = 'close'; // Icono de 'X'
-                        // Prevenir scroll cuando el menú está abierto
-                        document.body.style.overflow = 'hidden'; 
-                    }
-                });
-            }
-            
-            // Opcional: Cerrar menú si se hace clic en un enlace
-            const navLinks = mainNav.querySelectorAll('a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                   // Solo cierra si está en modo móvil (cuando el botón es visible)
-                   if (window.getComputedStyle(mobileMenuButton).display !== 'none' && !mainNav.classList.contains('hidden')) { 
-                       mainNav.classList.add('hidden');
-                       menuIcon.textContent = 'menu';
-                       document.body.style.overflow = ''; // Permitir scroll
-                   }
-                });
-            });
+            if (!mobileMenuButton || !mainNav) return;
 
-            // Opcional: Cerrar menú si se hace clic fuera de él en móvil
-             document.addEventListener('click', (event) => {
-                const isClickInsideNav = mainNav.contains(event.target);
-                const isClickOnButton = mobileMenuButton.contains(event.target);
+            const openMenu = () => {
+                mainNav.classList.remove('hidden');
+                mainNav.classList.add('show'); // nueva clase para forzar display en móvil
+                mobileMenuButton.classList.add('open');
+                mobileMenuButton.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+            };
 
-                // Si el menú está abierto y el clic fue fuera del menú y fuera del botón
-                if (!mainNav.classList.contains('hidden') && !isClickInsideNav && !isClickOnButton) {
-                    mainNav.classList.add('hidden');
-                    menuIcon.textContent = 'menu';
-                    document.body.style.overflow = ''; // Permitir scroll
+            const closeMenu = () => {
+                mainNav.classList.add('hidden');
+                mainNav.classList.remove('show');
+                mobileMenuButton.classList.remove('open');
+                mobileMenuButton.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            };
+
+            mobileMenuButton.addEventListener('click', (event) => {
+                event.stopPropagation();
+                if (mainNav.classList.contains('hidden')) {
+                    openMenu();
+                } else {
+                    closeMenu();
                 }
             });
 
+            // Cerrar menú al hacer click en un enlace (solo en móvil)
+            const navLinks = mainNav.querySelectorAll('a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth < 768 && !mainNav.classList.contains('hidden')) {
+                        closeMenu();
+                    }
+                });
+            });
+
+            // Cerrar si clic fuera del nav en móvil
+            document.addEventListener('click', (event) => {
+                const isClickInsideNav = mainNav.contains(event.target);
+                const isClickOnButton = mobileMenuButton.contains(event.target);
+                if (window.innerWidth < 768 && !mainNav.classList.contains('hidden') && !isClickInsideNav && !isClickOnButton) {
+                    closeMenu();
+                }
+            });
+
+            // Manejar redimensionado: cuando se pasa a vista de escritorio asegurar que el menú esté visible y limpiar estados
+            const handleResize = () => {
+                if (window.innerWidth >= 768) {
+                    mainNav.classList.remove('hidden');
+                    mainNav.classList.remove('show');
+                    mobileMenuButton.classList.remove('open');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = '';
+                } else {
+                    if (!mobileMenuButton.classList.contains('open')) {
+                        mainNav.classList.add('hidden');
+                        mainNav.classList.remove('show');
+                        mobileMenuButton.setAttribute('aria-expanded', 'false');
+                        document.body.style.overflow = '';
+                    } else {
+                        mainNav.classList.remove('hidden');
+                        mainNav.classList.add('show');
+                        document.body.style.overflow = 'hidden';
+                    }
+                }
+            };
+
+            window.addEventListener('resize', handleResize);
+            handleResize();
         });
     </script>
 </body>

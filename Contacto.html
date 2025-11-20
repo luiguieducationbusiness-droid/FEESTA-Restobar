@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Contacto - FESTA Restobar</title>
+    <link href="images/LogoFesta.svg" rel="icon" />
     
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Tinos&display=swap" rel="stylesheet" />
@@ -40,7 +41,7 @@
     
     <style>
         .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; /* Fill 0 para iconos outline */
         }
         
         /* Tipografía Secundaria para el cuerpo del texto */
@@ -49,7 +50,6 @@
             font-size: 16px;
             line-height: 1.6;
         }
-
         /* Tipografía Principal para los títulos */
         h1, h2 {
             font-family: 'Playfair Display', serif;
@@ -76,35 +76,95 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Estilos para animar el icono hamburguesa al abrir/cerrar */
+        #mobile-menu-button span {
+            transition: transform 0.3s ease, opacity 0.2s ease;
+            display: block;
+        }
+        /* Al abrir: convertir en "X" */
+        #mobile-menu-button.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+        #mobile-menu-button.open span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        #mobile-menu-button.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* --------- Mobile nav overlay override ---------
+            En móvil hacemos que #main-nav sea un overlay fijo
+            y nos aseguramos que tenga z-index y scroll si es necesario
+        --------------------------------------------------*/
+        @media (max-width: 767px) {
+          /* ocultamos por defecto con .hidden (Tailwind) */
+            #main-nav {
+            position: fixed;
+            inset: 0 0 0 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100vh;
+            padding-top: 72px; /* espacio para header; ajusta si tu header cambia */
+            background: rgba(69,15,4,0.95); /* fondo opaco para que se vea mejor */
+            z-index: 60;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            display: none; /* seguirá controlado por .hidden / JS */
+            }
+          /* cuando el script abre, añadimos .show */
+            #main-nav.show {
+            display: block;
+            }
+          /* mejor separación del contenido dentro del nav en móvil */
+            #main-nav > div {
+            padding: 1rem;
+            }
+        }
     </style>
 </head>
-<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<body class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
     <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
         <div class="layout-container flex h-full grow flex-col">
+            <div class="px-4 md:px-10 lg:px-20 xl:px-40 flex flex-1 justify-center py-5">
+                <div class="layout-content-container flex flex-col max-w-6xl flex-1">
+                    <header class="sticky top-0 z-50 bg-background-light dark:bg-background-dark shadow-md">
+                        <div class="px-4 md:px-10 lg:px-20 xl:px-40">
+                            <div class="relative flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 dark:border-white/10 px-4 md:px-10 py-3"> 
+                                <div class="relative w-24 h-12">
+                                    <a href="index.html" class="relative w-24 h-12">
+                                        <img src="https://static.wixstatic.com/media/331909_6717d46778d241bb8322283143bc33bf~mv2.png" 
+                                            alt="Logo de FESTA" 
+                                            class="logo-img"
+                                        >
+                                    </a>
+                                </div>
 
-            <header class="sticky top-0 z-50 bg-background-light dark:bg-background-dark shadow-md">
-                <div class="px-4 md:px-10 lg:px-20 xl:px-40">
-                    <div class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 dark:border-white/10 px-4 md:px-10 py-3">
-                        
-                        <div class="relative w-24 h-12">
-                            <a href="index.html" class="relative w-24 h-12">
-                                <img src="https://static.wixstatic.com/media/331909_6717d46778d241bb8322283143bc33bf~mv2.png" 
-                                    alt="Logo de FESTA" 
-                                    class="logo-img"
-                                >
-                            </a>
-                        </div>
-                        <div class="flex flex-1 justify-end gap-8">
-                            <nav class="hidden md:flex items-center gap-9">
-                                <a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary transition-all duration-300 transform hover:-translate-y-0.5" href="Menú.html">Menú</a>
-                                <a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary transition-all duration-300 transform hover:-translate-y-0.5" href="Galeria.html">Galería</a>
-                                <a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary transition-all duration-300 transform hover:-translate-y-0.5" href="Nosotros.html">Nosotros</a>
-                                <a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary transition-all duration-300 transform hover:-translate-y-0.5" href="Reseñas.html">Reseñas</a>
-                                <a class="text-primary dark:text-secondary text-sm font-bold leading-normal" href="Contacto.html" aria-current="page">Contacto</a>
-                            </nav>
-                            <a href="Reservas.html" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-secondary/90 transition-colors">
-                                <span class="truncate">Reservar una Mesa</span>
-                            </a>
+                                <nav id="main-nav" class="hidden absolute top-full left-0 w-full bg-background-light dark:bg-background-dark shadow-md py-4 md:py-0 md:static md:w-auto md:bg-transparent md:shadow-none md:flex flex-1 justify-end gap-8">
+                                    <div class="flex flex-col items-center gap-4 md:flex-row md:items-center md:gap-9 px-4 md:px-0">
+                                        <a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary transition-all duration-300 transform hover:-translate-y-0.5" href="Menú.html">Menú</a>
+                                        <a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary transition-all duration-300 transform hover:-translate-y-0.5" href="Galeria.html">Galería</a>
+                                        <a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary transition-all duration-300 transform hover:-translate-y-0.5" href="Nosotros.html">Nosotros</a>
+                                        <a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary transition-all duration-300 transform hover:-translate-y-0.5" href="Reseñas.html">Reseñas</a>
+                                        <a class="text-primary dark:text-secondary text-sm font-bold leading-normal" href="Contacto.html" aria-current="page">Contacto</a>
+                                    </div>
+                                    <div class="mt-4 md:mt-0 flex justify-center md:block">
+                                        <a href="Reservas.html" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-secondary/90 transition-colors">
+                                            <span class="truncate">Reservar una Mesa</span>
+                                        </a>
+                                    </div>
+                                </nav>
+                                <button id="mobile-menu-button" aria-label="Abrir menú" aria-expanded="false" 
+                                        class="md:hidden flex items-center justify-center size-10 rounded-lg bg-primary/10 text-primary transition-transform duration-300">
+                                    <div class="relative w-6 h-5">
+                                        <span class="absolute block w-full h-[2px] bg-secondary top-0 left-0 transition-all duration-300 origin-center"></span>
+                                        <span class="absolute block w-full h-[2px] bg-secondary top-1/2 left-0 -translate-y-1/2 transition-all duration-300 origin-center"></span>
+                                        <span class="absolute block w-full h-[2px] bg-secondary bottom-0 left-0 transition-all duration-300 origin-center"></span>
+                                    </div>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -226,23 +286,101 @@
     </div>
     
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("is-visible");
-              observer.unobserve(entry.target);
-            }
-          });
-        }, {
-          threshold: 0.1 // Ajusta si quieres que la animación empiece antes/después
-        });
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+                }
+            });
+            }, {
+            threshold: 0.1 // Ajusta si quieres que la animación empiece antes/después
+            });
 
-        const targets = document.querySelectorAll(".animate-on-scroll");
-        targets.forEach((target) => {
-          observer.observe(target);
+            const targets = document.querySelectorAll(".animate-on-scroll");
+            targets.forEach((target) => {
+            observer.observe(target);
+            });
         });
-      });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mainNav = document.getElementById('main-nav');
+
+            if (!mobileMenuButton || !mainNav) return;
+
+            const openMenu = () => {
+                mainNav.classList.remove('hidden');
+                mainNav.classList.add('show'); // nueva clase para forzar display en móvil
+                mobileMenuButton.classList.add('open');
+                mobileMenuButton.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+            };
+
+            const closeMenu = () => {
+                mainNav.classList.add('hidden');
+                mainNav.classList.remove('show');
+                mobileMenuButton.classList.remove('open');
+                mobileMenuButton.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            };
+
+            mobileMenuButton.addEventListener('click', (event) => {
+                event.stopPropagation();
+                if (mainNav.classList.contains('hidden')) {
+                    openMenu();
+                } else {
+                    closeMenu();
+                }
+            });
+
+            // Cerrar menú al hacer click en un enlace (solo en móvil)
+            const navLinks = mainNav.querySelectorAll('a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth < 768 && !mainNav.classList.contains('hidden')) {
+                        closeMenu();
+                    }
+                });
+            });
+
+            // Cerrar si clic fuera del nav en móvil
+            document.addEventListener('click', (event) => {
+                const isClickInsideNav = mainNav.contains(event.target);
+                const isClickOnButton = mobileMenuButton.contains(event.target);
+                if (window.innerWidth < 768 && !mainNav.classList.contains('hidden') && !isClickInsideNav && !isClickOnButton) {
+                    closeMenu();
+                }
+            });
+
+            // Manejar redimensionado: cuando se pasa a vista de escritorio asegurar que el menú esté visible y limpiar estados
+            const handleResize = () => {
+                if (window.innerWidth >= 768) {
+                    mainNav.classList.remove('hidden');
+                    mainNav.classList.remove('show');
+                    mobileMenuButton.classList.remove('open');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = '';
+                } else {
+                    if (!mobileMenuButton.classList.contains('open')) {
+                        mainNav.classList.add('hidden');
+                        mainNav.classList.remove('show');
+                        mobileMenuButton.setAttribute('aria-expanded', 'false');
+                        document.body.style.overflow = '';
+                    } else {
+                        mainNav.classList.remove('hidden');
+                        mainNav.classList.add('show');
+                        document.body.style.overflow = 'hidden';
+                    }
+                }
+            };
+
+            window.addEventListener('resize', handleResize);
+            handleResize();
+        });
     </script>
 </body>
 </html>
