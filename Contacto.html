@@ -123,6 +123,21 @@
             padding: 1rem;
             }
         }
+        /* NUEVA SECCIÓN: Hacer el header verdaderamente fijo */
+        header {
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 50;
+            animation: fadeInDown 0.8s ease-out forwards;
+            will-change: opacity, transform;
+        }
+
+        body {
+            padding-top: 20px; /* Ajusta este valor según la altura de tu header */
+        }
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">

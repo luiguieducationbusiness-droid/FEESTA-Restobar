@@ -124,6 +124,51 @@
             padding: 1rem;
             }
         }
+        /* NUEVA SECCIÓN: Hacer el header verdaderamente fijo */
+        header {
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 50;
+            animation: fadeInDown 0.8s ease-out forwards;
+            will-change: opacity, transform;
+        }
+
+        body {
+            padding-top: 50px; /* Ajusta este valor según la altura de tu header */
+        }
+
+        /* FOOTER: Mantener color sólido sin animaciones */
+    footer {
+        background-color: rgb(69, 15, 4);
+        position: relative;
+        z-index: 10;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        footer {
+            background-color: rgb(94, 26, 13);
+        }
+    }
+
+    /* Remover la animación del footer */
+    footer.animate-on-scroll {
+        animation: none;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    footer.animate-on-scroll.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Asegurar que el footer no tenga efectos de hover en sus padres */
+    footer * {
+        transition: color 0.3s ease, background-color 0.3s ease;
+    }
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
@@ -157,6 +202,13 @@
                     </div>
                 </div>
             </header>
+    <!-- Fondo -->
+    <div class="absolute inset-0 z-0">
+        <div class="w-full h-full bg-center bg-cover opacity-30"
+        style="background-image: url('images/FestaFrontal.webp');">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent"></div>
+    </div>
             <main class="flex flex-1 justify-center py-10 px-4 sm:px-6 lg:px-8">
                 <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
                     
