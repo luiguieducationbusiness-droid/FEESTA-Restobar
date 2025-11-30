@@ -137,6 +137,33 @@
         body {
             padding-top: 20px; /* Ajusta este valor según la altura de tu header */
         }
+        /* FOOTER: Mantener color sólido sin animaciones */
+        footer {
+            background-color: rgb(69, 15, 4);
+            position: relative;
+            z-index: 10;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            footer {
+                background-color: rgb(94, 26, 13);
+            }
+        }
+        /* NUEVA SECCIÓN: Ocultar barra de desplazamiento */
+        /* Para navegadores Chrome, Safari, Edge */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Para Firefox */
+        * {
+            scrollbar-width: none;
+        }
+
+        /* Para Internet Explorer y Edge antiguo */
+        html {
+            -ms-overflow-style: none;
+        }
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
@@ -183,6 +210,13 @@
                     </div>
                 </div>
             </header>
+            <!-- Fondo -->
+    <div class="absolute inset-0 z-0">
+        <div class="w-full h-full bg-center bg-cover opacity-20"
+        style="background-image: url('images/FestaFrontal.webp');">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/60 to-transparent"></div>
+    </div>
             <main class="px-4 md:px-10 lg:px-40 flex flex-1 justify-center py-10 lg:py-20">
                 <div class="layout-content-container flex flex-col w-full max-w-6xl flex-1">
                     
@@ -369,8 +403,8 @@
                             </div>
                         </div>
                         <div class="flex justify-center items-center mt-8 gap-4">
-                            <a class="text-text-light dark:text-text-dark hover:text-primary transition-all duration-300 transform hover:-translate-y-0.5" href="https://www.facebook.com/profile.php?id=61554950874731"><svg class="feather feather-facebook" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
-                            <a class="text-text-light dark:text-text-dark hover:text-primary transition-all duration-300 transform hover:-translate-y-0.5" href="https://www.instagram.com/festa_rest/%20target="><svg class="feather feather-instagram" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg></a>
+                            <a class="text-text-light dark:text-text-dark hover:text-primary transition-all duration-300 transform hover:-translate-y-0.5" href="https://www.facebook.com/profile.php?id=61554950874731" target="_blank" rel="noopener noreferrer"><svg class="feather feather-facebook" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                            <a class="text-text-light dark:text-text-dark hover:text-primary transition-all duration-300 transform hover:-translate-y-0.5" href="https://www.instagram.com/festa_rest/" target="_blank" rel="noopener noreferrer"><svg class="feather feather-instagram" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg></a>
                         </div>
                         <div class="text-center text-xs text-text-light/70 dark:text-text-dark/90 mt-8">
                             <p>© 2025 FESTA. Todos los derechos reservados. | <a class="hover:text-primary" href="privacidad.html">Política de Privacidad</a></p>

@@ -127,21 +127,54 @@
         }
 
         /* NUEVA SECCIÓN: Hacer el header verdaderamente fijo */
-    header {
-        position: fixed !important;
-        top: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        z-index: 50;
-        animation: fadeInDown 0.8s ease-out forwards;
-        will-change: opacity, transform;
-    }
+        header {
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 50;
+            animation: fadeInDown 0.8s ease-out forwards;
+            will-change: opacity, transform;
+        }
+        body {
+                padding-top: 50px; /* Ajusta este valor según la altura de tu header */
+            }
+
+            /* FOOTER: Mantener color sólido sin animaciones */
+        footer {
+            background-color: rgb(69, 15, 4);
+            position: relative;
+            z-index: 10;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            footer {
+                background-color: rgb(94, 26, 13);
+            }
+        }
+
+        /* NUEVA SECCIÓN: Ocultar barra de desplazamiento */
+        /* Para navegadores Chrome, Safari, Edge */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Para Firefox */
+        * {
+            scrollbar-width: none;
+        }
+
+        /* Para Internet Explorer y Edge antiguo */
+        html {
+            -ms-overflow-style: none;
+        }
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
     <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
         <div class="layout-container flex h-full grow flex-col">
+            
             <div class="px-4 md:px-10 lg:px-20 xl:px-40 flex flex-1 justify-center py-5">
                 <div class="layout-content-container flex flex-col max-w-6xl flex-1">
                     <header class="sticky top-0 z-50 bg-background-light dark:bg-background-dark shadow-md">
@@ -180,10 +213,13 @@
                                         <span class="absolute block w-full h-[2px] bg-secondary bottom-0 left-0 transition-all duration-300 origin-center"></span>
                                     </div>
                                 </button>
-
                             </div>
                         </div>
                     </header>
+
+                    <div class="absolute inset-0 z-0">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+                    </div>
 
                     <main class="flex-1">
                         
@@ -211,25 +247,25 @@
                             <h2 class="text-text-light dark:text-text-dark text-[22px] font-bold leading-tight tracking-[-0.015em] pb-3 text-center">Bienvenidos a FESTA</h2>
                             <p class="text-text-light dark:text-text-dark text-base font-normal leading-normal pb-3 pt-1 max-w-3xl mx-auto text-center">En FESTA, creemos en la pasión por la gastronomía, la calidad de nuestros ingredientes y la promesa de una velada inolvidable. Te invitamos a unirte a nosotros y celebrar el sabor del encuentro.</p>
                             
-                            <div class="flex w-full grow bg-background-light dark:bg-background-dark @container p-4 mt-8">
-                                <div class="w-full gap-2 overflow-hidden bg-background-light dark:bg-background-dark @[480px]:gap-4 aspect-[3/2] rounded-xl grid grid-cols-[2fr_1fr]">
+                            <div class="flex w-full grow @container p-4 mt-8">
+                                <div class="w-full gap-2 overflow-hidden @[480px]:gap-4 aspect-[3/2] rounded-xl grid grid-cols-[2fr_1fr]">
                                     
-                                    <div class="w-full h-full relative overflow-hidden rounded-l-xl">
+                                    <div class="w-full h-full relative overflow-hidden rounded-lg">
                                         <img 
                                             src="images/FestaFrontal.webp" 
                                             alt="Un primer plano de la entrada a FESTA." 
                                             loading="lazy" 
-                                            width="800" height="600"
+                                            width="800" height="300"
                                             class="w-full h-full object-cover object-center absolute inset-0" 
                                         />
                                     </div>
 
-                                    <div class="w-full h-full relative overflow-hidden rounded-r-xl">
+                                    <div class="w-full h-full relative overflow-hidden rounded-lg">
                                         <img 
                                             src="https://static.wixstatic.com/media/331909_5e24268c2705477796a995eb9f0d4290~mv2.jpg" 
                                             alt="Bartender preparando un cóctel colorido." 
                                             loading="lazy" 
-                                            width="400" height="600"
+                                            width="400" height="300"
                                             class="w-full h-full object-cover object-center absolute inset-0" 
                                         />
                                     </div>
@@ -251,7 +287,7 @@
                                 <div class="w-full h-64 relative overflow-hidden rounded-lg">
                                     <img loading="lazy" width="600" height="400" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBS3pPv66-1PmPgcPkHj2VMyxWzUuXKujmWd8i-tddgfEqlLP6qhea8jOEyt94IroQyNj39NWZPQpsLCP97DaJZxDomRXMxBeSQAgC8SWGEQYvwVlfMXJ_8Tmj2P_-LJh8qFmWG47eCg9xP5EDmZr_T8ax82D0vqjJVNgpH1bn7VCsAdWQgplWM28-lV9020NzMYmq17oP_ujM0VcAlkrmjxqDGonbR_0QxTgHw3yO800wgGq3zTiWDNwmYG3-GIXQJajekFwltyWKh" alt="Un pastel de lava de chocolate con centro fundido." class="w-full h-full object-cover object-center absolute inset-0">
                                 </div>
-                                <div class="w-full h-64 relative overflow-hidden rounded-lg sm:col-span-2 lg:col-span-1">
+                                <div class="w-full h-64 relative overflow-hidden rounded-lg">
                                     <img loading="lazy" width="600" height="400" src="https://static.wixstatic.com/media/331909_4a7857ca4eab447e8d7480c2e555a325~mv2.jpg" alt="Un surtido de cócteles coloridos en la barra." class="w-full h-full object-cover object-center absolute inset-0">
                                 </div>
                                 <div class="w-full h-64 relative overflow-hidden rounded-lg">
@@ -260,22 +296,22 @@
                                 <div class="w-full h-64 relative overflow-hidden rounded-lg">
                                     <img loading="lazy" width="600" height="400" src="https://static.wixstatic.com/media/331909_fff1170235e64e11af7cbcc0e0f8cd56~mv2.jpg" alt="Especialidad de la carta." class="w-full h-full object-cover object-center absolute inset-0">
                                 </div>
-
                             </div>
                         </section>
                     </main>
-
-                    <footer class="mt-20 border-t border-solid border-b-[#f4f1f0] dark:border-t-primary/20 pt-10 pb-6 px-4 sm:px-6 lg:px-10 animate-on-scroll">
+                </div> </div> <footer class="w-full mt-20 border-t border-solid border-gray-200 dark:border-white/10 pt-10 pb-6 animate-on-scroll">
+                <div class="px-4 md:px-10 lg:px-20 xl:px-40 flex justify-center">
+                    <div class="w-full max-w-6xl">
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                             <div class="flex flex-col items-center md:items-start">
-                                <div class="flex items-center gap-4 text-primary">
-                                    <a href="index.html" class="relative w-24 h-12">
+                                <a href="index.html" class="flex items-center gap-4 text-primary">
+                                    <div class="relative w-24 h-12">
                                         <img src="https://static.wixstatic.com/media/331909_6717d46778d241bb8322283143bc33bf~mv2.png" 
                                             alt="Logo de FESTA" 
                                             class="logo-img"
                                         >
-                                    </a>
-                                </div>
+                                    </div>
+                                </a>
                             </div>
                             <div class="text-center md:text-left">
                                 <h3 class="font-bold mb-2">Contacto</h3>
@@ -291,16 +327,16 @@
                             </div>
                         </div>
                         <div class="flex justify-center items-center mt-8 gap-4">
-                            <a class="text-text-light dark:text-text-dark hover:text-primary transition-all duration-300 transform hover:-translate-y-0.5" href="https://www.facebook.com/profile.php?id=61554950874731"><svg class="feather feather-facebook" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
-                            <a class="text-text-light dark:text-text-dark hover:text-primary transition-all duration-300 transform hover:-translate-y-0.5" href="https://www.instagram.com/festa_rest/%20target="><svg class="feather feather-instagram" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg></a>
+                            <a class="text-text-light dark:text-text-dark hover:text-primary transition-all duration-300 transform hover:-translate-y-0.5" href="https://www.facebook.com/profile.php?id=61554950874731" target="_blank" rel="noopener noreferrer"><svg class="feather feather-facebook" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                            <a class="text-text-light dark:text-text-dark hover:text-primary transition-all duration-300 transform hover:-translate-y-0.5" href="https://www.instagram.com/festa_rest/" target="_blank" rel="noopener noreferrer"><svg class="feather feather-instagram" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg></a>
                         </div>
                         <div class="text-center text-xs text-text-light/70 dark:text-text-dark/90 mt-8">
                             <p>© 2025 FESTA. Todos los derechos reservados. | <a class="hover:text-primary" href="privacidad.html">Política de Privacidad</a></p>
                         </div>
-                    </footer>
-
+                    </div>
                 </div>
-            </div>
+            </footer>
+
         </div>
     </div>
 
