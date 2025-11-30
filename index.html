@@ -169,9 +169,46 @@
         html {
             -ms-overflow-style: none;
         }
+        
+        /* --- ESTILOS DEL LOADING --- */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #450f04; /* Color Primary */
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+        }
+        
+        #preloader.loaded {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-logo {
+            width: 150px;
+            animation: breathe 2s infinite ease-in-out;
+        }
+
+        @keyframes breathe {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+    <!-- PANTALLA DE CARGA (LOADING) -->
+    <div id="preloader">
+        <img src="https://static.wixstatic.com/media/331909_6717d46778d241bb8322283143bc33bf~mv2.png" 
+            alt="Cargando FESTA..." 
+            class="loader-logo">
+    </div>
     <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
         <div class="layout-container flex h-full grow flex-col">
             
@@ -217,6 +254,7 @@
                         </div>
                     </header>
 
+                    <!-- Fondo -->
                     <div class="absolute inset-0 z-0">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
                     </div>
@@ -340,6 +378,22 @@
         </div>
     </div>
 
+    <!-- SCRIPT DEL LOADING -->
+    <script>
+        window.addEventListener("load", function() {
+            const preloader = document.getElementById("preloader");
+            
+            // Esperar un mínimo de tiempo (800ms) para que se vea el logo
+            setTimeout(() => {
+                preloader.classList.add("loaded");
+                
+                // Opcional: remover el elemento del DOM después de la transición
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 500); // Mismo tiempo que la transición CSS
+            }, 800);
+        });
+    </script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const observer = new IntersectionObserver((entries) => {
